@@ -32,7 +32,7 @@ pipeline {
         // BUILD_TIMESTAMP = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
         PUBLIC_IP = sh(script: """curl -s https://httpbin.org/ip | jq -r '.origin'""", returnStdout: true).trim()
 
-        envId = '32' // need to be dynamically acquired via curl
+        envId = '1' // need to be dynamically acquired via curl
 
 
     }
@@ -47,9 +47,9 @@ pipeline {
                 checkout scm
                 
                 // set GID
-                script {
-                    env.GID = sh(script: 'id -g jenkins', returnStdout: true).trim()
-                }
+               // script {
+            //        env.GID = sh(script: 'id -g jenkins', returnStdout: true).trim()
+             //   }
                 
                 // define services
                 script {
